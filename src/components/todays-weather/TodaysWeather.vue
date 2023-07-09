@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="todays_weather text-center bg-secondary pb-20 min-h-[100vh] lg:fixed lg:pb-0 lg:h-full lg:min-w-[33%]">
+    <div class="todays_weather text-center bg-secondary pb-20 min-h-[100vh] w-full md:w-[33%] md:fixed md:pb-0 md:h-full">
         <div class="p-10 flex justify-between [&>button]:bg-slate-500">
             <button class="px-3 py-2 hover:bg-slate-600" @click="$emit('openNav')">Search for places</button>
             <button class="rounded-full p-3 hover:bg-slate-600" @click="positionStore.setCurrentCoords()">
@@ -22,14 +22,16 @@ const props = defineProps({
             </button>
         </div>
     
-        <div class="todays_weather_images relative overflow-x-hidden bg-opacity-30">
-            <img src="@/assets/img/cloud-background.png" alt="" class="max-h-full max-w-[120%] absolute opacity-10 -z-10 left-10 right-10">
+        <div class="todays_weather_images relative min-h-[250px] bg-opacity-30 overflow-hidden">
+            <img src="@/assets/img/clouds.png" alt="" class="w-[40%] absolute opacity-10 z-10 top-0 left-[-18%]">
+            <img src="@/assets/img/clouds.png" alt="" class="w-[50%] absolute opacity-10 z-10 bottom-0 left-[-22%]">
+            <img src="@/assets/img/clouds.png" alt="" class="w-[33%] absolute opacity-10 z-10 top-[10%] right-[-12%]">
+            <img src="@/assets/img/clouds.png" alt="" class="w-[33%] absolute opacity-10 z-10 bottom-[0%] right-[-3%]">
             <IconWeather :weather="weather?.weather[0].main"/>
-            <!-- <img :src="`@/assets/img/${weatherImages[weather?.current?.condition.text]}`" alt="" class="m-auto z-10"> -->
         </div>
 
         <div class="todays_weather_temp my-4 lg:my-auto">
-            <span class="degrees_number text-7xl md:text-8xl">{{weather?.main?.temp||'-'}}</span>
+            <span class="degrees_number text-7xl md:text-6xl lg:text-7xl">{{weather?.main?.temp||'-'}}</span>
             <span class="degrees_unit text-4xl">°C</span>
         </div>
 
@@ -48,10 +50,5 @@ const props = defineProps({
 </template>
 
 <style>
-    /* .todays_weather_images{
-        content: '';
-        background-image: url('@/assets/img/cloud-background.png');
-        background-position: center;
-        background-repeat: no-repeat;
-    } */
+
 </style>

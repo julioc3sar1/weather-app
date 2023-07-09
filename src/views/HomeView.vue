@@ -39,7 +39,7 @@ const forecastDays = computed(() => forecast?.value?.list?.filter((el:any) => el
 
 <template>
   <WeatherNav :isActive="navIsActive" @closeNav="navIsActive = false"/>
-  <main class="lg:grid lg:grid-cols-3">
+  <main class="md:grid md:grid-cols-3">
     <TodaysWeather :weather="weather" @openNav="navIsActive=true"/>
     <section class="col-span-2 col-start-2 py-14 px-6 lg:px-28">
       <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-9">
