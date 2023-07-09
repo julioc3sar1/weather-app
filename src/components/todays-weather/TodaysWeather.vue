@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import moment from 'moment'
 import IconWeather from '../icons/IconWeather.vue';
+import { usePositionStore } from '@/stores/position';
 
+const positionStore = usePositionStore()
 const weatherImages = {
     "Sunny" : "sunny.png"
 }
@@ -14,8 +16,8 @@ const props = defineProps({
 <template>
     <div class="todays_weather text-center bg-secondary pb-20 min-h-[100vh] lg:fixed lg:pb-0 lg:h-full lg:min-w-[33%]">
         <div class="p-10 flex justify-between [&>button]:bg-slate-500">
-            <button class="px-3 py-2" @click="$emit('openNav')">Search for places</button>
-            <button class="rounded-full p-3">
+            <button class="px-3 py-2 hover:bg-slate-600" @click="$emit('openNav')">Search for places</button>
+            <button class="rounded-full p-3 hover:bg-slate-600" @click="positionStore.setCurrentCoords()">
                 <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff"><path d="M12 19a7 7 0 100-14 7 7 0 000 14zM12 19v2M5 12H3M12 5V3M19 12h2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </button>
         </div>
