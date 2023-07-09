@@ -2,15 +2,14 @@
 import moment from 'moment'
 import IconWeather from '../icons/IconWeather.vue';
 import { usePositionStore } from '@/stores/position';
-
+import IconLocation from '@/components/icons/IconLocation.vue'
+import IconPosition from '@/components/icons/IconPosition.vue'
 const positionStore = usePositionStore()
-const weatherImages = {
-    "Sunny" : "sunny.png"
-}
 
 const props = defineProps({
     weather:{type: Object, required: true}
 })
+
 </script>
 
 <template>
@@ -18,7 +17,7 @@ const props = defineProps({
         <div class="p-10 flex justify-between [&>button]:bg-slate-500">
             <button class="px-3 py-2 hover:bg-slate-600" @click="$emit('openNav')">Search for places</button>
             <button class="rounded-full p-3 hover:bg-slate-600" @click="positionStore.setCurrentCoords()">
-                <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff"><path d="M12 19a7 7 0 100-14 7 7 0 000 14zM12 19v2M5 12H3M12 5V3M19 12h2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <IconPosition/>
             </button>
         </div>
     
@@ -43,7 +42,7 @@ const props = defineProps({
         </div>
 
         <div class="flex items-center justify-center">
-            <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#fff"><path d="M20 10c0 4.418-8 12-8 12s-8-7.582-8-12a8 8 0 1116 0z" stroke="#fff" stroke-width="1.5"></path><path d="M12 11a1 1 0 100-2 1 1 0 000 2z" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <IconLocation class="mr-2"/>
             <span>{{weather?.name}} - {{ weather?.sys?.country }}</span>
         </div>
     </div>
