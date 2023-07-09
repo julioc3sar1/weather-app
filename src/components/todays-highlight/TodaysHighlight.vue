@@ -18,7 +18,7 @@ const HighlightUnits:any = {
     <div class="todays_highlight px-3 py-5 text-center bg-secondary">
         <span class="text-xl">{{title}}</span>
         <div class="my-5">
-            <span class="text-5xl mr-1">{{humidity||value||'N/A' }}</span>
+            <span class="text-5xl mr-1">{{humidity||value||'-' }}</span>
             <span class="text-3xl">{{HighlightUnits[title]}}</span>
         </div>
         <div class="humidity px-[15%]" v-if="props.humidity">
@@ -27,8 +27,8 @@ const HighlightUnits:any = {
                 <span>50</span>
                 <span>100</span>
             </div>
-            <div class="humidity_bar rounded bg-slate-400 h-2 after:rounded after:bg-yellow-300 after:h-2 after:block" :class="`after:w-[${humidity}%]`">
-                
+            <div class="humidity_bar rounded bg-slate-400 h-2">
+                <div class="h-full rounded bg-yellow-300 transition-all" :style="{width: humidity+'%'}"></div>
             </div>
             <div class="text-right">
                 <span>%</span>
