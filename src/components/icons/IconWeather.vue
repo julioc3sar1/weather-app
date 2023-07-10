@@ -14,6 +14,6 @@ const props = defineProps({
 </script>
 <template>
     <div class="my-5">
-        <img :src="`src/assets/img/${weatherImages[weather]}`" alt="" class="mx-auto max-w-[50%]">
+        <img :src="`./src/assets/img/${weatherImages[weather]}`" alt="" class="mx-auto max-w-[50%]">
     </div>
 </template>
