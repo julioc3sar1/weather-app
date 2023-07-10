@@ -28,7 +28,7 @@ function findLocations(){
 
 <template>
     <div 
-    class="weather_nav bg-secondary min-h-[100vh] fixed left-[-100%] min-w-full md:h-full md:min-w-[33%] md:w-[33%] md:left-[-100%] transition-all px-4 py-6 lg:pb-0 md:p-10 z-10"
+    class="weather_nav bg-secondary min-h-[100vh] fixed left-[-100%] min-w-full md:h-full md:min-w-[33%] md:w-[33%] md:left-[-100%] transition-all px-4 py-6 lg:pb-0 md:p-10 z-20"
     :class="{'!left-0':isActive}"
     >
         <div class="text-right">
