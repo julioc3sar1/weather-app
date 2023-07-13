@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import {usePositionStore} from '@/stores/position'
-import { useWeatherStore } from '@/stores/weather';
 import type { Location } from '@/models/location'
 
 const props = defineProps({
     isActive:{type:Boolean, required:true}
 })
 
-const weatherStore = useWeatherStore()
 const positionStore = usePositionStore()
 const search = ref('')
 
 const emit = defineEmits(['closeNav'])
 
 function showWeatherLocation(location:Location){
-    // weatherStore.getCurrentWeather(location.lat, location.lon)
     positionStore.setCurrentCoords(location.lat, location.lon)
     emit('closeNav')
-    
 }
 
 function findLocations(){
@@ -38,13 +34,14 @@ function findLocations(){
         </div>
         <div class="flex py-8">
             <input id="search" v-model="search" autocomplete="off" placeholder="Search location" type="text" class="flex-1 bg-transparent border border-white h-12 mr-2 px-3" @keyup.enter="findLocations()">
-            <button type="button" class="bg-blue-600 px-4" @click="findLocations()">Search</button>
+            <button type="button" class="bg-blue-600 px-4" @click="findLocations()" data-test="search">Search</button>
         </div>
-        <ul v-if="positionStore.locations.length>0">
+        <ul id="locations_result" v-if="positionStore.locations.length>0">
             <li 
             v-for="location in positionStore.locations" 
             class="py-4 cursor-pointer hover:text-yellow-500 font-medium"
             @click="showWeatherLocation(location)"
+            data-test="location"
             >
                 {{`${location.name} - ${location.state || null} - ${location.country}`}}
             </li>
