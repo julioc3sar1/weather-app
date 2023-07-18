@@ -16,7 +16,7 @@ const props = defineProps({
     <div class="todays_weather text-center bg-secondary pb-20 min-h-[100vh] w-full md:w-[33%] md:fixed md:pb-0 md:h-full">
         <div class="p-10 flex justify-between [&>button]:bg-slate-500">
             <button class="px-3 py-2 hover:bg-slate-600" @click="$emit('openNav')">Search for places</button>
-            <button class="rounded-full p-3 hover:bg-slate-600" @click="positionStore.setCurrentCoords()">
+            <button class="rounded-full p-3 hover:bg-slate-600" @click="positionStore.setCurrentCoords()" data-test="current">
                 <IconPosition/>
             </button>
         </div>

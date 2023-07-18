@@ -22,9 +22,9 @@ export const usePositionStore = defineStore('position', () => {
     async function getGeoLocations(query: string) {
         try {
             const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=fd2c23c730208645240acecf6a962629`);
-            const result = await response.text();
-            locations.value = JSON.parse(result)
-            return JSON.parse(result)
+            const result = await response.json();
+            locations.value = result
+            return result
         } catch (error) {
             return error
         }

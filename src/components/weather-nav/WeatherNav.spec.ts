@@ -71,7 +71,7 @@ describe('WeatherNav', () => {
         wrapper.find('input').setValue('porlamar')
         const searchButton = wrapper.find('[data-test=search]')
         await searchButton.trigger('click')
-        console.log(positionStore.locations)
+        // console.log(positionStore.locations)
         expect(positionStore.getGeoLocations).toHaveBeenCalled()
     })
 })
